@@ -1,6 +1,6 @@
 # My Portfolio
 
-Here is my portfolio! A responsive frontend web application built using React and Tailwind CSS.
+Here is the very first update of my portfolio! A responsive frontend web application built using React and Tailwind CSS.
 
 ## Tech Stack
 
