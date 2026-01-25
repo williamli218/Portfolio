@@ -12,7 +12,7 @@ I built it using HTML, CSS, Javascript with the help of Node.js, React and Tailw
 - Modern UI styling
 
 ## Demo
-[https://username.github.io/my-website](https://williamli218.github.io/Portfolio/)
+[Portfolio Link](https://williamli218.github.io/Portfolio/)
 
 ## Getting Started
 
