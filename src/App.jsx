@@ -343,6 +343,9 @@ export default function App() {
               <br />
               <p>Developed a personal portfolio website using HTML, CSS, CSS Tailwind, JavaScript and React with Node.js used for development tooling and build processes.</p>
               <br />
+              <p><a href ="https://github.com/williamli218/Portfolio" target="_blank" className="project-link">GitHub Link</a></p>
+              <p><a href="https://williamli218.github.io/Portfolio/" target="_blank" className="project-link">Portfolio Link</a></p>
+              <br />
               <div className="flex gap-2">
                 <img src={htmlLogo} alt="HTML Logo" className="skills-icons" />
                 <img src={cssLogo} alt="CSS Logo" className="skills-icons" />
