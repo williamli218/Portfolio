@@ -13,9 +13,8 @@ I built it using HTML, CSS, Javascript with the help of Node.js, React and Tailw
 
 ## Demo
 
-<a href="https://williamli218.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
-  Portfolio Link
-</a>
+
+[Portfolio Link](https://williamli218.github.io/Portfolio/)
 
 ## Getting Started
 
