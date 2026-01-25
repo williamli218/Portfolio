@@ -12,7 +12,10 @@ I built it using HTML, CSS, Javascript with the help of Node.js, React and Tailw
 - Modern UI styling
 
 ## Demo
-[Portfolio Link](https://williamli218.github.io/Portfolio/)
+
+<a href="https://williamli218.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
+  Portfolio Link
+</a>
 
 ## Getting Started
 
