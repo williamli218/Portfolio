@@ -17,21 +17,15 @@ section {
     padding: 8rem 4rem 8rem 4rem;
 }
 
-a.nav-bar-item {
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
 a.social-link-container {
   display: flex;
   align-items: center;
   font-size: 1.5rem;
   border: 2px solid #000;
   border-radius: 0.75rem;
-    padding: 0.25rem;
-    text-decoration: underline;
-    gap: 0.25rem;
+  padding: 0.25rem;
+  text-decoration: underline;
+  gap: 0.25rem;
 }
 
 a.project-link {
@@ -61,14 +55,14 @@ div.techincal-skills-item {
 
 div.technical-skills-section-grid {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 div.technical-skills-container {
   display: flex;
-    gap: 3rem;
+  gap: 3rem;
 }
 
 img.techincal-skills-logo {
@@ -83,23 +77,23 @@ div.project {
   background-color: white;
   max-width: 28rem;
   border-radius: 0.75rem;
-    padding: 1rem;
+  padding: 1rem;
 
 }
 
 img.project-icon {
-    height: 12rem;
-    border-radius: 0.5rem;
-    border: black 2px solid;
+  height: 12rem;
+  border-radius: 0.5rem;
+  border: black 2px solid;
 }
 
 div.project-icon-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 div.project p {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 img.skills-icons {
@@ -107,8 +101,8 @@ img.skills-icons {
 }
 
 div.personal-box {
-    border: black 2px solid;
-    border-radius: 1rem;
-    padding: 1rem;
-    width: 32rem;
+  border: black 2px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 32rem;
 }

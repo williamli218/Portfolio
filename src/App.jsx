@@ -32,11 +32,15 @@ import portfolioScreenshot from './assets/portfolio-screenshot.png'
 import piano from './assets/piano.jpg'
 import mathematics from './assets/mathematics.jpg'
 
+{/* Custom React Hook */}
 function useInView(options) {
+  {/* Reference initially undefined */}
   const ref = useRef();
+  {/* Tracks whether element is currently visible */}
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
+    {/* Object determining when an element enters or leaves the viewport */}
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -46,16 +50,18 @@ function useInView(options) {
       },
       { threshold: 0.3, ...options }
     );
-
-    if (ref.current) observer.observe(ref.current);
-
+    {/* If the ref is attached to a DOM element, start observing it */}
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    {/* Disconnect observer when component unmounts or options change */}
     return () => observer.disconnect();
-  }, [ref, options]);
-
+  }, [options]);
+  {/* Return the components to use */}
   return [ref, inView];
 }
 
-function Expandable() {
+function PersonalSection() {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -101,6 +107,159 @@ function Expandable() {
   );
 }
 
+{/* Navbar Items */}
+function NavBarItem({ href, content }) {
+  return (
+    <li>
+      <a href={href} className="no-underline text-2xl font-bold">{content}</a>
+    </li>
+  )
+}
+
+const navBarItem = [
+  {
+    href: "#education",
+    content: "Education"
+  },
+  {
+    href: "#technical-skills",
+    content: "Technical Skills"
+  },
+  {
+    href: "#projects",
+    content: "Projects"
+  },
+  {
+    href: "#introduction",
+    content: "Contact"
+  }
+]
+
+{/* Social Link Items */}
+function SocialLinkItem({ href, src, alt, content }) {
+  return (
+    <a 
+      className="social-link-container" 
+      href={href} 
+      target="_blank"
+    >
+      <img className="w-12"
+        src={src} 
+        alt={alt}
+      />
+      {content}
+    </a>
+  )
+}
+
+const socialLinkItem = [
+  {
+    href: "https://www.linkedin.com/in/williamli218/",
+    src: linkedinLogo,
+    alt: "LinkedIn Logo",
+    content: "LinkedIn"
+  },
+  {
+    href: "https://github.com/williamli218",
+    src: githubLogo,
+    alt: "GitHub Logo",
+    content: "GitHub"
+  },
+  {
+    href: "mailto:william.jy.li@gmail.com",
+    src: emailLogo,
+    alt: "Email Logo",
+    content: "Email"
+  }
+]
+
+{/* Technical Skills Items */}
+function TechnicalSkillsItem({ src, alt, content }) {
+  return (
+    <div className="techincal-skills-item">
+      <img className="techincal-skills-logo" src={src} alt={alt} />
+      <p className="techincal-skills-text">{content}</p>
+    </div>
+  )
+}
+
+const languageItem = [
+  {
+    src: pythonLogo,
+    alt: "Python Logo",
+    content: "Python"
+  },
+  {
+    src: htmlLogo,
+    alt: "HTML Logo",
+    content: "HTML"
+  },
+  {
+    src: cssLogo,
+    alt: "CSS Logo",
+    content: "CSS"
+  },
+  {
+    src: javascriptLogo,
+    alt: "JavaScript Logo",
+    content: "JavaScript"
+  },
+  {
+    src: bashLogo,
+    alt: "Bash Logo",
+    content: "Bash"
+  },
+  {
+    src: javaLogo,
+    alt:"Java Logo",
+    content: "Java"
+  },
+  {
+    src: cLogo,
+    alt: "C Logo",
+    content: "C"
+  },
+  {
+    src: cSharpLogo,
+    alt: "C# Logo",
+    content: "C#"
+  }
+]
+
+const frameworksItem = [
+  {
+    src: reactLogo,
+    alt: "React Logo",
+    content: "React"
+  },
+  {
+    src: tailwindCSSLogo,
+    alt: "Tailwind CSS Logo",
+    content: "Tailwind CSS"
+  },
+  {
+    src: nodeJSLogo,
+    alt: "Node.js Logo",
+    content: "Node.js"
+  },
+  {
+    src: unityLogo,
+    alt: "Unity Logo",
+    content: "Unity"
+  },
+  {
+    src: gitLogo,
+    alt: "Git Logo",
+    content: "Git"
+  },
+  {
+    src: githubLogo,
+    alt: "GitHub Logo",
+    content: "GitHub"
+  }
+]
+
+
 export default function App() {
   const [show, setShow] = useState(false);
 
@@ -120,10 +279,9 @@ export default function App() {
       <header className="fixed bg-gray-900 w-full py-4 px-16 opacity-100 z-100">
         <nav>  
           <ul className="flex justify-end gap-12 text-white">
-            <li><a href="#education" className="nav-bar-item">Education</a></li>
-            <li><a href="#technical-skills" className="nav-bar-item">Technical Skills</a></li>
-            <li><a href="#projects" className="nav-bar-item">Projects</a></li>
-            <li><a href="#introduction" className="nav-bar-item">Contact</a></li>
+            {navBarItem.map((item) => (
+              <NavBarItem key={item} href={item.href} content={item.content} />
+            ))}
           </ul>
         </nav>
       </header>
@@ -145,38 +303,9 @@ export default function App() {
             <p className="text-xl text-left">I am an aspiring software developer, currently exploring the exciting world of computer science. I enjoy learning new concepts and tackling coding challenges both inside and outside the classroom.</p>
             {/* Social Links */}
             <div className="flex gap-8">
-              <a 
-                className="social-link-container" 
-                href="https://www.linkedin.com/in/williamli218/" 
-                target="_blank"
-              >
-                <img className="w-12"
-                  src={linkedinLogo} 
-                  alt="LinkedIn Logo"
-                />
-                LinkedIn
-              </a>
-              <a 
-                className="social-link-container" 
-                href="https://github.com/williamli218" 
-                target="_blank"
-              >
-                <img className="w-12"
-                  src={githubLogo} 
-                  alt="GitHub Logo"
-                />
-                GitHub
-              </a>
-              <a 
-                className="social-link-container"
-                href="mailto:william.jy.li@gmail.com"
-              >
-                <img className="w-12"
-                  src={emailLogo} 
-                  alt="Email Logo"
-                />
-                Email
-              </a>
+              {socialLinkItem.map((item) => (
+                <SocialLinkItem key={item} href={item.href} src={item.src} alt={item.alt} content={item.content} />
+              ))}
             </div>
           </div>
         </section>
@@ -253,68 +382,18 @@ export default function App() {
             <h3 className="text-2xl font-bold">Languages</h3>
             {/* Languages Logos */}
             <div className="technical-skills-container">
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={pythonLogo} alt="Python Logo" />
-                <p className="techincal-skills-text">Python</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={htmlLogo} alt="HTML5 Logo" />
-                <p className="techincal-skills-text">HTML</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={cssLogo} alt="CSS3 Logo" />
-                <p className="techincal-skills-text">CSS</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={javascriptLogo} alt="JavaScript Logo" />
-                <p className="techincal-skills-text">JavaScript</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={bashLogo} alt="Bash Logo" />
-                <p className="techincal-skills-text">Bash</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={javaLogo} alt="Java Logo" />
-                <p className="techincal-skills-text">Java</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={cLogo} alt="C Logo" />
-                <p className="techincal-skills-text">C</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={cSharpLogo} alt="C# Logo" />
-                <p className="techincal-skills-text">C#</p>
-              </div>
+              {languageItem.map((item) => (
+                <TechnicalSkillsItem key={item} src={item.src} alt={item.alt} content={item.content} />
+              ))}
             </div>
           </div>
           {/* Frameworks & Tools Logos */}
           <div className="technical-skills-section-grid">
             <h3 className="text-2xl font-bold">Frameworks & Tools</h3>
             <div className="technical-skills-container">
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={reactLogo} alt="React Logo" />
-                <p className="techincal-skills-text">React</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={tailwindCSSLogo} alt="Tailwind CSS Logo" />
-                <p className="techincal-skills-text">Tailwind CSS</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={nodeJSLogo} alt="Node.js Logo" />
-                <p className="techincal-skills-text">Node.js</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={unityLogo} alt="Unity Logo" />
-                <p className="techincal-skills-text">Unity</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={gitLogo} alt="Git Logo" />
-                <p className="techincal-skills-text">Git</p>
-              </div>
-              <div className="techincal-skills-item">
-                <img className="techincal-skills-logo" src={githubLogo} alt="GitHub Logo" />
-                <p className="techincal-skills-text">GitHub</p>
-              </div>
+              {frameworksItem.map((item) => (
+                <TechnicalSkillsItem key={item} src={item.src} alt={item.alt} content={item.content} />
+              ))}
             </div>
           </div>
         </section>
@@ -420,7 +499,7 @@ export default function App() {
         </section>
         {/* Personal Section */}
         <h3 className="text-center">Learn more about me outside of the professional world!</h3>
-        <Expandable />
+        <PersonalSection />
       </main>
       <footer className="p-9">
         <p className="flex justify-end font-bold pr-40">Copyright © 2026 William Li. All rights reserved.</p>
